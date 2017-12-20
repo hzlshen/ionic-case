@@ -3,21 +3,38 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {CardsPage} from "../pages/cards/cards";
+import {ContentPage} from "../pages/content/content";
+import {ItemCreatePage} from "../pages/item-create/item-create";
+import {ListMasterPage} from "../pages/list-master/list-master";
+import {LoginPage} from "../pages/login/login";
+import {MenuPage} from "../pages/menu/menu";
+import {SearchPage} from "../pages/search/search";
+import {SettingsPage} from "../pages/settings/settings";
+import {SignupPage} from "../pages/signup/signup";
+import {TutorialPage} from "../pages/tutorial/tutorial";
+import {WelcomePage} from "../pages/welcome/welcome";
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    CardsPage,
+    ContentPage,
+    ItemCreatePage,
+    ListMasterPage,
+    LoginPage,
+    MenuPage,
+    SearchPage,
+    SettingsPage,
+    SignupPage,
+    TutorialPage,
+    WelcomePage,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,10 +43,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    CardsPage,
+    ContentPage,
+    ItemCreatePage,
+    ListMasterPage,
+    LoginPage,
+    MenuPage,
+    SearchPage,
+    SettingsPage,
+    SignupPage,
+    TutorialPage,
+    WelcomePage,
   ],
   providers: [
     StatusBar,
