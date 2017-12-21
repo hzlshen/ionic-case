@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Items } from '../../providers/providers';
 
 /**
  * Generated class for the ItemDetailPage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ItemDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  item:any;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams,items: Items) {
+    this.item=navParams.get('item') || items.defaultItem;
   }
 
   ionViewDidLoad() {
