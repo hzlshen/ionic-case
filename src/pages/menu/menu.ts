@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 
-/**
- * Generated class for the MenuPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+interface PageItem{
+  title:string
+  component:any
+}
+type PageList  = PageItem[]
 
 @IonicPage()
 @Component({
@@ -15,9 +14,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MenuPage {
 
+  @ViewChild(Nav) nav:Nav;
+  
+  rootPage:any = 'ContentPage';
+  
+  pages:PageList;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.pages=[
+      {title:'Sign in',component:'LoginPage'},
+      {title:'Signup',component:'SignupPage'}
+    ];
   }
 
+  openPage(page:PageItem){
+    this.nav.setRoot(page.component);
+  }
+  
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
   }
