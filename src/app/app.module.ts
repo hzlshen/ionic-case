@@ -18,11 +18,25 @@ import {SettingsPage} from "../pages/settings/settings";
 import {SignupPage} from "../pages/signup/signup";
 import {TutorialPage} from "../pages/tutorial/tutorial";
 import {WelcomePage} from "../pages/welcome/welcome";
-import { ProvidersProvider } from '../providers/providers/providers';
-import { ApiProvider } from '../providers/api/api';
-import { ItemsProvider } from '../providers/items/items';
-import { SettingsProvider } from '../providers/settings/settings';
-import { UserProvider } from '../providers/user/user';
+import { Settings } from '../providers/providers';
+import { User } from '../providers/providers';
+import { Api } from '../providers/providers';
+
+
+export function provideSettings(storage: Storage) {
+  /**
+   * The Settings provider takes a set of default settings for your app.
+   *
+   * You can add new settings options at any time. Once the settings are saved,
+   * these values will not overwrite the saved values (this can be done manually if desired).
+   */
+  return new Settings(storage, {
+    option1: true,
+    option2: 'Ionitron J. Framework',
+    option3: '3',
+    option4: 'Hello'
+  });
+}
 
 @NgModule({
   declarations: [
@@ -64,11 +78,9 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProvidersProvider,
-    ApiProvider,
-    ItemsProvider,
-    SettingsProvider,
-    UserProvider
+    Api,
+    User,
+    { provide: Settings, useFactory: provideSettings, deps: [Storage] },
   ]
 })
 export class AppModule {}

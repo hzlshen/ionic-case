@@ -1,17 +1,21 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the ItemsProvider provider.
+import { Item } from '../../models/item';
+import { Api } from '../api/api';
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class ItemsProvider {
+export class Items {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello ItemsProvider Provider');
+  constructor(public api: Api) { }
+
+  query(params?: any) {
+    return this.api.get('/items', params);
+  }
+
+  add(item: Item) {
+  }
+
+  delete(item: Item) {
   }
 
 }
