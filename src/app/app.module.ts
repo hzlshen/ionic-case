@@ -18,6 +18,11 @@ import {SettingsPage} from "../pages/settings/settings";
 import {SignupPage} from "../pages/signup/signup";
 import {TutorialPage} from "../pages/tutorial/tutorial";
 import {WelcomePage} from "../pages/welcome/welcome";
+import { ProvidersProvider } from '../providers/providers/providers';
+import { ApiProvider } from '../providers/api/api';
+import { ItemsProvider } from '../providers/items/items';
+import { SettingsProvider } from '../providers/settings/settings';
+import { UserProvider } from '../providers/user/user';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,6 @@ import {WelcomePage} from "../pages/welcome/welcome";
     SignupPage,
     TutorialPage,
     WelcomePage,
-    
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,12 @@ import {WelcomePage} from "../pages/welcome/welcome";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProvidersProvider,
+    ApiProvider,
+    ItemsProvider,
+    SettingsProvider,
+    UserProvider
   ]
 })
 export class AppModule {}
