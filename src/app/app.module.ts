@@ -21,6 +21,9 @@ import {WelcomePage} from "../pages/welcome/welcome";
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
+import {Items} from "../mocks/providers/items";
+import {Camera} from "@ionic-native/camera";
+import {HttpClientModule} from "@angular/common/http";
 
 
 export function provideSettings(storage: Storage) {
@@ -56,6 +59,7 @@ export function provideSettings(storage: Storage) {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -78,10 +82,13 @@ export function provideSettings(storage: Storage) {
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Api,
     User,
+    Items,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}

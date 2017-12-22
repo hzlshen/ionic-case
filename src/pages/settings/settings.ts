@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {TranslateService} from "@ngx-translate/core";
 
-
+import { Settings } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -32,7 +32,7 @@ export class SettingsPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public settings:SettingsPage,
+    public settings:Settings,
     public formBuilder:FormBuilder,
     public translate:TranslateService
   ) {

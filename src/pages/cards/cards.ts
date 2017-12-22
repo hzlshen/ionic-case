@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {TranslateService} from "@ngx-translate/core";
 
 
 @IonicPage()
@@ -11,7 +12,7 @@ export class CardsPage {
 
   cardItems:any[];
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,translate:TranslateService) {
     this.cardItems=[
       {
         user:{
