@@ -11,28 +11,28 @@ import {CardsPage} from "../pages/cards/cards";
 import {ContentPage} from "../pages/content/content";
 import {ItemCreatePage} from "../pages/item-create/item-create";
 import {ListMasterPage} from "../pages/list-master/list-master";
-import {LoginPage} from "../pages/login/login";
+// import {LoginPage} from "../pages/login/login";
 import {MenuPage} from "../pages/menu/menu";
 import {SearchPage} from "../pages/search/search";
 import {SettingsPage} from "../pages/settings/settings";
 import {SignupPage} from "../pages/signup/signup";
-import {TutorialPage} from "../pages/tutorial/tutorial";
+// import {TutorialPage} from "../pages/tutorial/tutorial";
 import {WelcomePage} from "../pages/welcome/welcome";
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import {Items} from "../mocks/providers/items";
 import {Camera} from "@ionic-native/camera";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 export function provideSettings(storage: Storage) {
-  /**
-   * The Settings provider takes a set of default settings for your app.
-   *
-   * You can add new settings options at any time. Once the settings are saved,
-   * these values will not overwrite the saved values (this can be done manually if desired).
-   */
+  
   return new Settings(storage, {
     option1: true,
     option2: 'Ionitron J. Framework',
@@ -49,17 +49,24 @@ export function provideSettings(storage: Storage) {
     ContentPage,
     ItemCreatePage,
     ListMasterPage,
-    LoginPage,
+    // LoginPage,
     MenuPage,
     SearchPage,
     SettingsPage,
     SignupPage,
-    TutorialPage,
+    // TutorialPage,
     WelcomePage,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory:(createTranslateLoader),
+        deps:[HttpClient]
+      }
+    }),
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -71,12 +78,12 @@ export function provideSettings(storage: Storage) {
     ContentPage,
     ItemCreatePage,
     ListMasterPage,
-    LoginPage,
+    // LoginPage,
     MenuPage,
     SearchPage,
     SettingsPage,
     SignupPage,
-    TutorialPage,
+    // TutorialPage,
     WelcomePage,
   ],
   providers: [
