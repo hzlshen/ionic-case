@@ -44,9 +44,6 @@ export class LoginPage {
       toast.present();
     });
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+  
 
 }
