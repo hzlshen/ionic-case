@@ -31,10 +31,10 @@ export class LoginPage {
     })
   }
   
-  doLogin(){
-    this.user.login(this.account).subscribe(resp=>{
+  doLogin() {
+    this.user.login(this.account).subscribe((resp) => {
       this.navCtrl.push(MainPage);
-    },(err)=>{
+    }, (err) => {
       this.navCtrl.push(MainPage);
       let toast = this.toastCtrl.create({
         message: this.loginErrorString,
@@ -42,7 +42,7 @@ export class LoginPage {
         position: 'top'
       });
       toast.present();
-    })
+    });
   }
 
   ionViewDidLoad() {
